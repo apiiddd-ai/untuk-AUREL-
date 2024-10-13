@@ -1,0 +1,139 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    background-size: 300% 300%;
+    animation: gradientShift 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.wrapper {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.gif-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.gif {
+    width: 100%;
+    height: auto; /* This keeps the GIF size proportional */
+    border-radius: 10px;
+}
+
+/* Pesan romantis yang muncul setelah klik Yes */
+.message {
+    display: none;
+    font-size: 18px;
+    color: #e4345d;
+    margin-top: 20px;
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Confetti hearts */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f32656;
+    transform: rotate(45deg);
+    animation: confettiFall linear infinite;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: rotate(45deg) translateY(-50px);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(45deg) translateY(700px);
+        opacity: 0;
+    }
+}
+
+/* Hati jatuh di background */
+.falling-heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #f32656;
+    transform: rotate(45deg);
+    animation: fall linear infinite;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        opacity: 1;
+        transform: translateX(0) rotate(45deg);
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+        transform: translateX(50px) rotate(45deg);
+    }
+}
+
+/* Style tombol */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.yes-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.no-btn {
+    background-color: #dc3545;
+    color: white;
+    position: absolute; /* Agar bisa bergerak bebas */
+}
+
+.no-btn.moving {
+    animation: moveButton 1s ease-in-out infinite;
+}
+
+@keyframes moveButton {
+    0% { top: 50%; left: 50%; }
+    25% { top: 10%; left: 70%; }
+    50% { top: 80%; left: 40%; }
+    75% { top: 60%; left: 10%; }
+    100% { top: 50%; left: 50%; }
+}
